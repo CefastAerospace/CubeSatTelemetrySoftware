@@ -145,9 +145,9 @@ public class ControladorWidgets {
    @FXML
    void salvarForcadamente(ActionEvent event) {
       // URL de conexão com o banco de dados
-      String DB_URL = "jdbc:postgresql://localhost:5432/TCC-AEROSPACE";
+      String DB_URL = "jdbc:postgresql://localhost:5432/tccaerospace";
       String USER = "postgres"; // Substitua pelo seu usuário do PostgreSQL
-      String PASS = "eunaotenhosenha"; // Substitua pela sua senha do PostgreSQL
+      String PASS = "123456"; // Substitua pela sua senha do PostgreSQL
 
       // Conecte-se e insira os dados
       try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS)) {
