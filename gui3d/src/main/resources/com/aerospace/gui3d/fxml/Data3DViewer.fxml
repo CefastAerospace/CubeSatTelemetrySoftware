@@ -39,19 +39,18 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.effect.Bloom?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.MeshView?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <VBox prefHeight="400.0" prefWidth="640.0" stylesheets="@../assets/css/gui.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aerospace.gui3d.controllers.Data3DViewerController">
   <children>
@@ -60,9 +59,9 @@
             <Line endX="1047.6666259765625" layoutX="171.0" layoutY="67.0" startX="-121.66667175292969" stroke="WHITE" strokeWidth="1.5" styleClass="menu-bar" />
             <Pane layoutX="26.0" layoutY="89.0" prefHeight="601.0" prefWidth="1221.0" styleClass="card" stylesheets="@../assets/css/gui.css">
                <children>
-                  <AnchorPane layoutX="581.0" layoutY="268.0" prefHeight="320.0" prefWidth="615.0" styleClass="pane">
+                  <AnchorPane layoutX="581.0" layoutY="268.0" prefHeight="320.0" prefWidth="592.0" style="-fx-background-color: #000000;" styleClass="pane">
                      <children>
-                        <LineChart fx:id="lineChart" layoutX="-5.0" layoutY="18.0" prefHeight="311.0" prefWidth="615.0">
+                        <LineChart fx:id="lineChart" layoutX="9.0" layoutY="26.0" prefHeight="296.0" prefWidth="574.0" style="-fx-background-color: #000000;">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
@@ -70,27 +69,68 @@
                             <NumberAxis side="LEFT" />
                           </yAxis>
                         </LineChart>
+                        <MenuBar fx:id="menuBarTrocarGrafico" layoutX="473.0" layoutY="-1.0" styleClass="graphMenu" stylesheets="@../assets/css/gui.css">
+                          <menus>
+                            <Menu mnemonicParsing="false" text="Trocar Gráfico">
+                              <items>
+                                <MenuItem fx:id="menuItemTemperatura" mnemonicParsing="false" text="Temperatura" />
+                                    <MenuItem fx:id="menuItemAltitude" mnemonicParsing="false" text="Altitude" />
+                              </items>
+                            </Menu>
+                          </menus>
+                        </MenuBar>
                      </children></AnchorPane>
                   <Line endX="257.33331298828125" layoutX="570.0" layoutY="304.0" rotate="90.0" startX="-300.0" stroke="WHITE" strokeWidth="2.0" />
-                  <AnchorPane layoutX="576.0" layoutY="20.0" prefHeight="240.0" prefWidth="628.0" styleClass="pane">
+                  <AnchorPane layoutX="576.0" layoutY="34.0" prefHeight="216.0" prefWidth="261.0" styleClass="pane">
                      <children>
-                        <GridPane layoutX="14.0" layoutY="18.0" prefHeight="228.0" prefWidth="592.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                        </GridPane>
+                        <Text fill="WHITE" layoutX="36.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Temperatura:" />
+                        <TextField alignment="CENTER" editable="false" layoutX="125.0" layoutY="14.0" prefHeight="30.0" prefWidth="100.0" promptText="00" style="-fx-background-color: transparent;" text="00" />
+                        <Text fill="WHITE" layoutX="36.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Altitude:" />
+                        <TextField alignment="CENTER" editable="false" layoutX="125.0" layoutY="52.0" prefHeight="30.0" prefWidth="100.0" promptText="00" style="-fx-background-color: transparent;" text="00" />
+                        <Text fill="WHITE" layoutX="36.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Umidade:" />
+                        <TextField alignment="CENTER" editable="false" layoutX="125.0" layoutY="93.0" prefHeight="30.0" prefWidth="100.0" promptText="00" style="-fx-background-color: transparent;" text="00" />
+                        <Text fill="WHITE" layoutX="36.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bateria:" />
+                        <TextField alignment="CENTER" editable="false" layoutX="125.0" layoutY="131.0" prefHeight="30.0" prefWidth="100.0" promptText="00" style="-fx-background-color: transparent;" text="00" />
+                        <Text fill="WHITE" layoutX="36.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Velocidade:" />
+                        <TextField alignment="CENTER" editable="false" layoutX="125.0" layoutY="172.0" prefHeight="30.0" prefWidth="100.0" promptText="00" style="-fx-background-color: transparent;" text="00" />
                      </children></AnchorPane>
-                  <AnchorPane fx:id="anchorPane3d" layoutX="19.0" layoutY="110.0" prefHeight="477.0" prefWidth="504.0" styleClass="pane">
+                  <AnchorPane fx:id="anchorPane3d" layoutX="19.0" layoutY="110.0" prefHeight="477.0" prefWidth="504.0" styleClass="card-3d">
                      <children>
                         <MeshView fx:id="meshVIew3D" layoutX="252.0" layoutY="239.0" />
                      </children></AnchorPane>
+                  <AnchorPane layoutX="854.0" layoutY="34.0" prefHeight="103.0" prefWidth="344.0" styleClass="pane">
+                     <children>
+                        <Text fill="WHITE" layoutX="78.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Eixo X:" />
+                        <TextField alignment="CENTER" editable="false" layoutX="167.0" layoutY="7.0" prefHeight="30.0" prefWidth="100.0" promptText="00" style="-fx-background-color: transparent;" text="00" />
+                        <Text fill="WHITE" layoutX="78.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Eixo Y:" />
+                        <TextField alignment="CENTER" editable="false" layoutX="167.0" layoutY="45.0" prefHeight="30.0" prefWidth="100.0" promptText="00" style="-fx-background-color: transparent;" text="00" />
+                        <Text fill="WHITE" layoutX="78.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Eixo Z:" />
+                        <TextField alignment="CENTER" editable="false" layoutX="167.0" layoutY="86.0" prefHeight="30.0" prefWidth="100.0" promptText="00" style="-fx-background-color: transparent;" text="00" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="854.0" layoutY="172.0" prefHeight="72.0" prefWidth="344.0" styleClass="pane">
+                     <children>
+                        <Text fill="WHITE" layoutX="78.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tensão:" />
+                        <TextField alignment="CENTER" editable="false" layoutX="167.0" layoutY="5.0" prefHeight="30.0" prefWidth="100.0" promptText="00" style="-fx-background-color: transparent;" text="00" />
+                        <Text fill="WHITE" layoutX="78.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Corrente:" />
+                        <TextField alignment="CENTER" editable="false" layoutX="167.0" layoutY="43.0" prefHeight="30.0" prefWidth="100.0" promptText="00" style="-fx-background-color: transparent;" text="00" />
+                     </children>
+                  </AnchorPane>
+                  <Text fill="WHITE" layoutX="641.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dados do Satélite" textAlignment="CENTER">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="997.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Posição" textAlignment="CENTER">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="997.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Energia" textAlignment="CENTER">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
                </children>
             </Pane>
             <ImageView fitHeight="45.0" fitWidth="46.0" layoutX="55.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" styleClass="menu-item">
@@ -101,28 +141,28 @@
                   <Bloom />
                </effect>
             </ImageView>
-            <ToolBar layoutX="741.0" layoutY="2.0" prefHeight="61.0" prefWidth="174.0" styleClass="toolbar" stylesheets="@../assets/css/gui.css">
+            <ToolBar layoutX="741.0" layoutY="2.0" prefHeight="61.0" prefWidth="200.0" styleClass="toolbar" stylesheets="@../assets/css/gui.css">
                <items>
                   <ImageView fitHeight="51.0" fitWidth="60.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../assets/img/cubeicon.png" />
                      </image>
                   </ImageView>
-                  <Label prefHeight="28.0" prefWidth="102.0" text="CUBESATS" textAlignment="CENTER" textFill="WHITE">
+                  <Label prefHeight="28.0" prefWidth="130.0" styleClass="Ablation" stylesheets="@../assets/css/gui.css" text="CUBESATS" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
                </items>
             </ToolBar>
-            <ToolBar layoutX="500.0" layoutY="1.0" prefHeight="61.0" prefWidth="174.0" styleClass="toolbar" stylesheets="@../assets/css/gui.css">
+            <ToolBar layoutX="500.0" layoutY="1.0" prefHeight="61.0" prefWidth="200.0" styleClass="toolbar" stylesheets="@../assets/css/gui.css">
                <items>
                   <ImageView fitHeight="51.0" fitWidth="60.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../assets/img/search.png" />
                      </image>
                   </ImageView>
-                  <Label prefHeight="28.0" prefWidth="102.0" text="EXPLORAR" textAlignment="CENTER" textFill="WHITE">
+                  <Label prefHeight="28.0" prefWidth="130.0" styleClass="Ablation" stylesheets="@../assets/css/gui.css" text="EXPLORAR" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="19.0" />
                      </font>
@@ -136,7 +176,7 @@
                         <Image url="@../assets/img/equipe.png" />
                      </image>
                   </ImageView>
-                  <Label prefHeight="28.0" prefWidth="102.0" text="Equipes" textAlignment="CENTER" textFill="WHITE">
+                  <Label prefHeight="28.0" prefWidth="102.0" styleClass="Ablation" stylesheets="@../assets/css/gui.css" text="Equipes" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="19.0" />
                      </font>
@@ -150,23 +190,13 @@
                         <Image url="@../assets/img/logo.png" />
                      </image>
                   </ImageView>
-                  <Label prefHeight="28.0" prefWidth="287.0" text="Cubesat Telemetry Enviroment" textAlignment="CENTER" textFill="WHITE">
+                  <Label prefHeight="28.0" prefWidth="287.0" styleClass="TheSeasons" stylesheets="@../assets/css/gui.css" text="Cubesat Telemetry Enviroment" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
                </items>
             </ToolBar>
-            <MenuBar fx:id="menuBarTrocarGrafico" layoutX="1096.0" layoutY="76.0" styleClass="graphMenu" stylesheets="@../assets/css/gui.css">
-              <menus>
-                <Menu mnemonicParsing="false" text="Trocar Gráfico">
-                  <items>
-                    <MenuItem fx:id="menuItemTemperatura" mnemonicParsing="false" text="Temperatura" />
-                        <MenuItem fx:id="menuItemAltitude" mnemonicParsing="false" text="Altitude" />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
          </children>
     </AnchorPane>
   </children>

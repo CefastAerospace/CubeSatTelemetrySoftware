@@ -75,7 +75,7 @@ public class Model3D {
         adjustPositionToCenter(meshView);
 
         PhongMaterial material = new PhongMaterial();
-        material.setDiffuseColor(Color.SILVER);
+        material.setDiffuseColor(Color.WHITE);
         meshView.setMaterial(material);
 
         root.getChildren().add(meshView);

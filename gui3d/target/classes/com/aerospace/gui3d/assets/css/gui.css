@@ -1,3 +1,26 @@
+@font-face {
+    font-family: "Ablation";
+    src: url("../font/Ablation_PersonalUse.otf");
+}
+
+@font-face {
+    font-family: "TheSeasons";
+    src: url("../font/theseasons-reg.otf");
+}
+@font-face {
+    font-family: "SpaceAge";
+    src: url("../font/spaceAge.ttf");
+}
+.Ablation {
+-fx-font-family: "Ablation";
+}
+.TheSeasons {
+-fx-font-family: "TheSeasons";
+}
+.SpaceAge {
+-fx-font-family: "SpaceAge";
+}
+
 
 .body {
     -fx-background-image: url("../img/fundo.png");
@@ -9,6 +32,16 @@
     -fx-background-radius: 20px;
     
 }
+
+.card-3d {
+    -fx-background-color: rgb(0, 0, 0);
+    -fx-border-color: rgb(255,255,255);
+    -fx-border-radius: 20px;
+    -fx-border-width: 2px;
+    -fx-background-radius: 20px;
+    
+}
+
 .menu-bar{
 -fx-background-radius: 10px;
 -fx-border-radius: 10px;
