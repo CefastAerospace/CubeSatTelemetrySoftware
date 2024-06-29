@@ -1,8 +1,12 @@
 /home/lucas/NetBeansProjects/gui3d/src/main/java/com/aerospace/gui3d/App.java
 /home/lucas/NetBeansProjects/gui3d/src/main/java/com/aerospace/gui3d/Model3D.java
-/home/lucas/NetBeansProjects/gui3d/src/main/java/com/aerospace/gui3d/GridPaneManager.java
+/home/lucas/NetBeansProjects/gui3d/src/main/java/com/aerospace/gui3d/jpa/BancodeDeDados.java
+/home/lucas/NetBeansProjects/gui3d/src/main/java/com/aerospace/gui3d/jpa/Dados.java
+/home/lucas/NetBeansProjects/gui3d/src/main/java/com/aerospace/gui3d/Updater.java
+/home/lucas/NetBeansProjects/gui3d/src/main/java/com/aerospace/gui3d/jpa/DadosDAO.java
 /home/lucas/NetBeansProjects/gui3d/src/main/java/com/aerospace/gui3d/controllers/Data3DViewerController.java
 /home/lucas/NetBeansProjects/gui3d/src/main/java/module-info.java
+/home/lucas/NetBeansProjects/gui3d/src/main/java/com/aerospace/gui3d/jpa/SimuladorDados.java
 /home/lucas/NetBeansProjects/gui3d/src/main/java/com/aerospace/gui3d/controllers/PrimaryController.java
 /home/lucas/NetBeansProjects/gui3d/src/main/java/com/aerospace/gui3d/OBJLoader.java
 /home/lucas/NetBeansProjects/gui3d/src/main/java/com/aerospace/gui3d/LineChartManager.java

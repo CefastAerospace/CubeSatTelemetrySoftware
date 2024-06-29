@@ -9,7 +9,11 @@
 }
 @font-face {
     font-family: "SpaceAge";
-    src: url("../font/spaceAge.ttf");
+    src: url("../font/spaceage.ttf");
+}
+.short-letter-space {
+    -fx-line-spacing: 1px; /* Define o espaçamento entre as linhas */
+    -fx-font-weight: bold; /* Engrossa a fonte */
 }
 .Ablation {
 -fx-font-family: "Ablation";
@@ -85,7 +89,7 @@
 }
 
 .graphMenu {
-  -fx-background-color: rgba(115, 102, 139,0.9);
+
 }
 .graph-menu-item {
     -fx-background-color: transparent;
@@ -99,4 +103,8 @@
 
 .graph-menu-item:pressed {
     -fx-background-color: rgba(115, 102, 139, 0.9);
+}
+.table{
+  -fx-background-color: rgba(115, 102, 139,0.7);
+  -fx-background-radius: 10px;
 }
