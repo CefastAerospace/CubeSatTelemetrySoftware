@@ -3,6 +3,7 @@ package com.aerospace.gui3d;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import javafx.animation.RotateTransition;
 
 import javafx.scene.Group;
 import javafx.scene.PerspectiveCamera;
@@ -15,6 +16,7 @@ import javafx.scene.shape.MeshView;
 import javafx.scene.shape.TriangleMesh;
 import javafx.scene.transform.Rotate;
 import javafx.geometry.Bounds;
+import javafx.util.Duration;
 
 public class Model3D {
 
@@ -185,18 +187,21 @@ public class Model3D {
         }
     }
 
-    public void rotateModel(double angleX, double angleY, double angleZ) {
-        rotateX += angleX;
-        rotateY += angleY;
-        rotateZ += angleZ;
+public void rotateModel(double angleX, double angleY, double angleZ) {
+    rotateX = angleX;
+    rotateY = angleY;
+    rotateZ = angleZ;
 
-        meshView.getTransforms().clear();
-        meshView.getTransforms().addAll(
-                new Rotate(rotateX, meshView.getBoundsInLocal().getCenterX(), meshView.getBoundsInLocal().getCenterY(), meshView.getBoundsInLocal().getCenterZ(), Rotate.X_AXIS),
-                new Rotate(rotateY, meshView.getBoundsInLocal().getCenterX(), meshView.getBoundsInLocal().getCenterY(), meshView.getBoundsInLocal().getCenterZ(), Rotate.Y_AXIS),
-                new Rotate(rotateZ, meshView.getBoundsInLocal().getCenterX(), meshView.getBoundsInLocal().getCenterY(), meshView.getBoundsInLocal().getCenterZ(), Rotate.Z_AXIS)
-        );
-    }
+    double totalAngle = Math.sqrt(angleX * angleX + angleY * angleY + angleZ * angleZ); // Calcula o ângulo total
+    javafx.geometry.Point3D axis = new javafx.geometry.Point3D(angleX, angleY, angleZ).normalize(); // Normaliza o vetor de eixo
+
+    RotateTransition rotation = new RotateTransition(Duration.seconds(1), meshView);
+    rotation.setAxis(axis);
+    rotation.setByAngle(totalAngle);
+    rotation.setCycleCount(1); // Apenas uma rotação completa
+    rotation.setAutoReverse(false);
+    rotation.play();
+}
 
     public Group getRoot() {
         return root;
