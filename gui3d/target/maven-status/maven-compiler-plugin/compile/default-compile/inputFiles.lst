@@ -1,13 +1,12 @@
-/home/lucas/Downloads/Projetos/CubeSatTelemetrySoftware/gui3d/src/main/java/com/aerospace/gui3d/LineChartManager.java
-/home/lucas/Downloads/Projetos/CubeSatTelemetrySoftware/gui3d/src/main/java/com/aerospace/gui3d/controllers/Data3DViewerController.java
-/home/lucas/Downloads/Projetos/CubeSatTelemetrySoftware/gui3d/src/main/java/com/aerospace/gui3d/jpa/SimuladorDados.java
-/home/lucas/Downloads/Projetos/CubeSatTelemetrySoftware/gui3d/src/main/java/com/aerospace/gui3d/jpa/Dados.java
 /home/lucas/Downloads/Projetos/CubeSatTelemetrySoftware/gui3d/src/main/java/com/aerospace/gui3d/jpa/BancodeDeDados.java
+/home/lucas/Downloads/Projetos/CubeSatTelemetrySoftware/gui3d/src/main/java/com/aerospace/gui3d/LineChartManager.java
 /home/lucas/Downloads/Projetos/CubeSatTelemetrySoftware/gui3d/src/main/java/com/aerospace/gui3d/jpa/DadosDAO.java
+/home/lucas/Downloads/Projetos/CubeSatTelemetrySoftware/gui3d/src/main/java/com/aerospace/gui3d/controllers/Data3DViewerController.java
 /home/lucas/Downloads/Projetos/CubeSatTelemetrySoftware/gui3d/src/main/java/com/aerospace/gui3d/controllers/PrimaryController.java
 /home/lucas/Downloads/Projetos/CubeSatTelemetrySoftware/gui3d/src/main/java/com/aerospace/gui3d/Updater.java
-/home/lucas/Downloads/Projetos/CubeSatTelemetrySoftware/gui3d/src/main/java/com/aerospace/gui3d/jpa/Brincadas.java
 /home/lucas/Downloads/Projetos/CubeSatTelemetrySoftware/gui3d/src/main/java/com/aerospace/gui3d/Model3D.java
 /home/lucas/Downloads/Projetos/CubeSatTelemetrySoftware/gui3d/src/main/java/com/aerospace/gui3d/OBJLoader.java
 /home/lucas/Downloads/Projetos/CubeSatTelemetrySoftware/gui3d/src/main/java/com/aerospace/gui3d/App.java
 /home/lucas/Downloads/Projetos/CubeSatTelemetrySoftware/gui3d/src/main/java/module-info.java
+/home/lucas/Downloads/Projetos/CubeSatTelemetrySoftware/gui3d/src/main/java/com/aerospace/gui3d/jpa/SimuladorDados.java
+/home/lucas/Downloads/Projetos/CubeSatTelemetrySoftware/gui3d/src/main/java/com/aerospace/gui3d/jpa/Dados.java

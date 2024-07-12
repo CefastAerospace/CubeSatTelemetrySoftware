@@ -1,5 +1,4 @@
 com/aerospace/gui3d/controllers/PrimaryController.class
-com/aerospace/gui3d/jpa/Brincadas.class
 module-info.class
 com/aerospace/gui3d/OBJLoader.class
 com/aerospace/gui3d/jpa/Dados.class
