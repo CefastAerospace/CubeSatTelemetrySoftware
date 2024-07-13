@@ -1,3 +1,7 @@
+/**
+ * Manages a LineChart with multiple series for aerospace data visualization.
+ * This class utilizes JavaFX for chart rendering and data manipulation.
+ */
 package com.aerospace.gui3d;
 
 import javafx.animation.AnimationTimer;
@@ -11,6 +15,10 @@ import java.util.*;
 
 import javafx.scene.chart.CategoryAxis;
 
+/**
+ * Manages a LineChart with multiple series for aerospace data visualization.
+ * 
+ */
 public class LineChartManager {
 
     private LineChart<String, Number> lineChart;
@@ -29,6 +37,11 @@ public class LineChartManager {
 
     private long startTimeMs; // Tempo inicial em milissegundos
 
+    /**
+     * Constructor for LineChartManager.
+     *
+     * @param lineChart The LineChart instance to manage.
+     */
     public LineChartManager(LineChart<String, Number> lineChart) {
         this.lineChart = lineChart;
         this.random = new Random();
@@ -40,6 +53,10 @@ public class LineChartManager {
         customizeChart();
     }
 
+    /**
+     * Initializes the LineChart with default settings. Configures axes and adds
+     * default series.
+     */
     private void initializeChart() {
         // Configurar eixos
         CategoryAxis xAxis = new CategoryAxis();
@@ -77,6 +94,9 @@ public class LineChartManager {
         lineChart.setTitle(getActiveSeriesName());
     }
 
+    /**
+     * Sets up an AnimationTimer to update chart data periodically.
+     */
     private void setupDataUpdate() {
         // Usar AnimationTimer para atualizar os dados a cada segundo
         new AnimationTimer() {
@@ -93,6 +113,11 @@ public class LineChartManager {
         }.start();
     }
 
+    /**
+     * Adds random data to the active series.
+     *
+     * @param elapsedMillis Elapsed time in milliseconds.
+     */
     private void addRandomData(long elapsedMillis) {
         // Determinar qual série está ativa atualmente
         String activeSeriesName = getActiveSeriesName();
@@ -139,6 +164,11 @@ public class LineChartManager {
         }
     }
 
+    /**
+     * Adds a new series to the LineChart.
+     *
+     * @param seriesName The name of the series to add.
+     */
     public void addSeries(String seriesName) {
         XYChart.Series<String, Number> series = new XYChart.Series<>();
         series.setName(seriesName);
@@ -146,6 +176,11 @@ public class LineChartManager {
         lineChart.getData().add(series);
     }
 
+    /**
+     * Sets the active series to display and hides others.
+     *
+     * @param seriesName The name of the series to set as active.
+     */
     public void setActiveSeries(String seriesName) {
         // Limpar os dados da série ativa atual
         XYChart.Series<String, Number> currentActiveSeries = seriesMap.get(getActiveSeriesName());
@@ -179,12 +214,26 @@ public class LineChartManager {
         lineChart.layout();
     }
 
+    /**
+     * Sets the background color of the LineChart.
+     *
+     * @param red Red component of the color (0-255).
+     * @param green Green component of the color (0-255).
+     * @param blue Blue component of the color (0-255).
+     */
     public void setChartBackground(int red, int green, int blue) {
         // Definir cor de fundo do gráfico
         String style = String.format("-fx-background-color: rgb(%d, %d, %d);", red, green, blue);
         lineChart.setStyle(style);
     }
 
+    /**
+     * Sets the line color of all series in the LineChart.
+     *
+     * @param red Red component of the color (0-255).
+     * @param green Green component of the color (0-255).
+     * @param blue Blue component of the color (0-255).
+     */
     public void setLineColor(int red, int green, int blue) {
         // Definir cor da linha do gráfico
         String style = String.format("-fx-stroke: rgb(%d, %d, %d);", red, green, blue);
@@ -193,6 +242,13 @@ public class LineChartManager {
         }
     }
 
+    /**
+     * Sets the text color of all data points in the LineChart.
+     *
+     * @param red Red component of the color (0-255).
+     * @param green Green component of the color (0-255).
+     * @param blue Blue component of the color (0-255).
+     */
     public void setTextColor(int red, int green, int blue) {
         // Definir cor do texto do gráfico
         String style = String.format("-fx-text-fill: rgb(%d, %d, %d);", red, green, blue);
@@ -203,12 +259,20 @@ public class LineChartManager {
         }
     }
 
+    /**
+     * Sets the chart style to use white colors for title and axis labels.
+     */
     public void setChartStyleToWhite() {
         // Definir cor branca para o título e os rótulos dos eixos
         setChartTitleStyle("-fx-text-fill: white;");
         setAxisLabelStyle("-fx-tick-label-fill: white;");
     }
 
+    /**
+     * Sets the style of the LineChart title.
+     *
+     * @param style The CSS style to apply to the title.
+     */
     private void setChartTitleStyle(String style) {
         // Definir estilo do título do gráfico
         Label titleLabel = (Label) lineChart.lookup(".chart-title");
@@ -217,6 +281,11 @@ public class LineChartManager {
         }
     }
 
+    /**
+     * Sets the style of the X and Y axis labels.
+     *
+     * @param style The CSS style to apply to the axis labels.
+     */
     private void setAxisLabelStyle(String style) {
         // Definir estilo dos rótulos dos eixos X e Y
         CategoryAxis xAxis = (CategoryAxis) lineChart.getXAxis();
@@ -225,6 +294,10 @@ public class LineChartManager {
         yAxis.setStyle(style);
     }
 
+    /**
+     * Sets default colors for background, line, and text. Uses black
+     * background, white line color, and white text color.
+     */
     private void setDefaultColors() {
         // Cores padrão
         setChartBackground(0, 0, 0); // Preto
@@ -233,6 +306,10 @@ public class LineChartManager {
         setChartStyleToWhite();
     }
 
+    /**
+     * Customizes the appearance of the LineChart. Sets rounded border and
+     * modifies plot area background.
+     */
     private void customizeChart() {
         // Definir borda arredondada
         Region chartRegion = (Region) lineChart.lookup(".chart-plot-background");
@@ -245,6 +322,11 @@ public class LineChartManager {
         // Modificar o background da área de tabulação (eixos, legendas)
     }
 
+    /**
+     * Retrieves the name of the currently active series.
+     *
+     * @return The name of the active series.
+     */
     public String getActiveSeriesName() {
         for (Map.Entry<String, XYChart.Series<String, Number>> entry : seriesMap.entrySet()) {
             if (entry.getValue().getNode().isVisible()) {

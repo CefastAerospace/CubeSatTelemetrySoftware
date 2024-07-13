@@ -1,0 +1,4 @@
+module:com.aerospace.gui3d
+com.aerospace.gui3d
+com.aerospace.gui3d.controllers
+com.aerospace.gui3d.jpa

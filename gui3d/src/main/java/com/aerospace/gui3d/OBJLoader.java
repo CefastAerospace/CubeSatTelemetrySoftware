@@ -1,4 +1,5 @@
 package com.aerospace.gui3d;
+
 import javafx.scene.shape.TriangleMesh;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -6,9 +7,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * A utility class to load 3D object data from an OBJ file into a JavaFX
+ * TriangleMesh.
+ */
 public class OBJLoader {
 
+    /**
+     * Loads a TriangleMesh object from the specified OBJ file.
+     *
+     * @param objFilePath The file path to the OBJ file.
+     * @return A TriangleMesh object populated with vertex and face data from
+     * the OBJ file.
+     * @throws IOException If an I/O error occurs while reading the file.
+     */
+    
     public static TriangleMesh load(String objFilePath) throws IOException {
         TriangleMesh mesh = new TriangleMesh();
 
@@ -64,5 +77,3 @@ public class OBJLoader {
     }
 
 }
-
-

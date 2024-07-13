@@ -1,3 +1,7 @@
+/**
+ * Represents a 3D model viewer with camera controls and model manipulation capabilities.
+ * This class utilizes JavaFX for rendering and interaction.
+ */
 package com.aerospace.gui3d;
 
 import java.io.IOException;
@@ -18,6 +22,10 @@ import javafx.scene.transform.Rotate;
 import javafx.geometry.Bounds;
 import javafx.util.Duration;
 
+/**
+ * A class representing a 3D model viewer with camera controls and model
+ * manipulation capabilities.
+ */
 public class Model3D {
 
     private Group root;
@@ -37,6 +45,10 @@ public class Model3D {
     private double rotateY = 0;
     private double rotateZ = 0;
 
+    /**
+     * Constructs a Model3D object, initializing the root group, camera, scene,
+     * and loading the 3D model.
+     */
     public Model3D() {
         root = new Group();
         initCamera();
@@ -44,6 +56,9 @@ public class Model3D {
         initMesh();
     }
 
+    /**
+     * Initializes the camera with specific settings.
+     */
     private void initCamera() {
         camera = new PerspectiveCamera(true);
         camera.setNearClip(1);
@@ -53,6 +68,10 @@ public class Model3D {
         camera.setTranslateZ(-465); // Afastando a câmera para trás
     }
 
+    /**
+     * Initializes the JavaFX scene with the root group and sets up event
+     * handling. - Please avoid use this.
+     */
     private void initScene() {
         Scene scene = new Scene(root, 600, 600, true);
         scene.setFill(Color.BLACK);
@@ -61,6 +80,10 @@ public class Model3D {
         scene.setOnKeyPressed(event -> handleKeyPressed(event));
     }
 
+    /**
+     * Initializes the 3D mesh by loading it from an OBJ file and configuring
+     * its appearance.
+     */
     private void initMesh() {
         TriangleMesh mesh = null;
         try {
@@ -83,6 +106,12 @@ public class Model3D {
         root.getChildren().add(meshView);
     }
 
+    /**
+     * Adjusts the position of the mesh view to center it within its bounding
+     * box.
+     *
+     * @param meshView The MeshView object to adjust.
+     */
     private void adjustPositionToCenter(MeshView meshView) {
         Bounds bounds = meshView.getBoundsInLocal();
         double centerX = (bounds.getMaxX() + bounds.getMinX()) / 2;
@@ -94,6 +123,11 @@ public class Model3D {
         meshView.setTranslateZ(meshView.getTranslateZ() - centerZ);
     }
 
+    /**
+     * Handles key pressed events for camera movement and model rotation.
+     *
+     * @param event The KeyEvent object representing the key pressed event.
+     */
     public void handleKeyPressed(KeyEvent event) {
         switch (event.getCode()) {
             case W:
@@ -144,36 +178,58 @@ public class Model3D {
                 + ", Z=" + rotateZ);
     }
 
+    /**
+     * Moves the camera forward along its current viewing direction.
+     */
     public void moveCameraForward() {
         camera.setTranslateZ(camera.getTranslateZ() + cameraSpeed);
         limitCameraDistance();
     }
 
+    /**
+     * Moves the camera backward along its current viewing direction.
+     */
     public void moveCameraBackward() {
         camera.setTranslateZ(camera.getTranslateZ() - cameraSpeed);
         limitCameraDistance();
     }
 
+    /**
+     * Moves the camera to the left along the x-axis.
+     */
     public void moveCameraLeft() {
         camera.setTranslateX(camera.getTranslateX() - cameraSpeed);
         limitCameraDistance();
     }
 
+    /**
+     * Moves the camera to the right along the x-axis.
+     */
     public void moveCameraRight() {
         camera.setTranslateX(camera.getTranslateX() + cameraSpeed);
         limitCameraDistance();
     }
 
+    /**
+     * Moves the camera up along the y-axis.
+     */
     public void moveCameraUp() {
         camera.setTranslateY(camera.getTranslateY() - cameraSpeed);
         limitCameraDistance();
     }
 
+    /**
+     * Moves the camera down along the y-axis.
+     */
     public void moveCameraDown() {
         camera.setTranslateY(camera.getTranslateY() + cameraSpeed);
         limitCameraDistance();
     }
 
+    /**
+     * Limits the camera's distance to keep it from getting too close to the
+     * model.
+     */
     private void limitCameraDistance() {
         double distanceToModel = Math.sqrt(
                 camera.getTranslateX() * camera.getTranslateX()
@@ -187,26 +243,43 @@ public class Model3D {
         }
     }
 
-public void rotateModel(double angleX, double angleY, double angleZ) {
-    rotateX = angleX;
-    rotateY = angleY;
-    rotateZ = angleZ;
+    /**
+     * Rotates the model around its center using the specified angles.
+     *
+     * @param angleX The angle to rotate around the x-axis.
+     * @param angleY The angle to rotate around the y-axis.
+     * @param angleZ The angle to rotate around the z-axis.
+     */
+    public void rotateModel(double angleX, double angleY, double angleZ) {
+        rotateX = angleX;
+        rotateY = angleY;
+        rotateZ = angleZ;
 
-    double totalAngle = Math.sqrt(angleX * angleX + angleY * angleY + angleZ * angleZ); // Calcula o ângulo total
-    javafx.geometry.Point3D axis = new javafx.geometry.Point3D(angleX, angleY, angleZ).normalize(); // Normaliza o vetor de eixo
+        double totalAngle = Math.sqrt(angleX * angleX + angleY * angleY + angleZ * angleZ); // Calcula o ângulo total
+        javafx.geometry.Point3D axis = new javafx.geometry.Point3D(angleX, angleY, angleZ).normalize(); // Normaliza o vetor de eixo
 
-    RotateTransition rotation = new RotateTransition(Duration.seconds(1), meshView);
-    rotation.setAxis(axis);
-    rotation.setByAngle(totalAngle);
-    rotation.setCycleCount(1); // Apenas uma rotação completa
-    rotation.setAutoReverse(false);
-    rotation.play();
-}
+        RotateTransition rotation = new RotateTransition(Duration.seconds(1), meshView);
+        rotation.setAxis(axis);
+        rotation.setByAngle(totalAngle);
+        rotation.setCycleCount(1); // Apenas uma rotação completa
+        rotation.setAutoReverse(false);
+        rotation.play();
+    }
 
+    /**
+     * Retrieves the root group of the 3D scene.
+     *
+     * @return The root Group object.
+     */
     public Group getRoot() {
         return root;
     }
 
+    /**
+     * Retrieves the camera used in the 3D scene.
+     *
+     * @return The PerspectiveCamera object.
+     */
     public PerspectiveCamera getCamera() {
         return camera;
     }
